@@ -1,0 +1,284 @@
+@import 'variables';
+@import 'footer';
+
+* {
+    font-family: Copperplate, Papyrus, fantasy;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul {
+    overflow: hidden;
+    list-style: none;
+}
+
+nav {
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+ul li {
+    float: left;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    padding: 14px 30px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: $color-fondo;
+}
+
+.active {
+    background-color: $color-activo;
+}
+
+body {
+    background-color: $color-fondo;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.principal {
+    padding-top: 20px;
+    margin-top: 10vh;
+}
+
+@media only screen and (min-width: 768px) {
+    .principal {
+        padding-top: 20px;
+        margin-top: 5vh;
+    }
+}
+
+.principal__contacto {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.principal__contacto__botonenviar {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+
+}
+
+.principal__contacto>form {
+    width: 30rem;
+}
+
+.full-width-image {
+    min-width: 336px;
+    max-width: 100%;
+    width: 100%;
+    min-height: 280px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.croped {
+    height: 300px;
+    object-fit: none;
+}
+
+.size-x3 {
+    font-size: 300%;
+}
+
+.principal-text {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.background-image {
+    background-image: url("background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical
+}
+
+input[type=submit] {
+    width: 10rem;
+    background-color: $color-primario;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    padding: 20px;
+}
+
+/* manejo de GRIDS */
+/* GALERIA */
+.galeria {
+    display: grid;
+    grid-template-areas:
+        'foto1'
+        'foto2'
+        'foto3'
+        'foto4'
+        'foto5'
+        'foto6';
+    grid-template-columns: repeat(1, auto);
+    align-content: stretch;
+    gap: 10px;
+    padding: 0.5vw;
+    margin-top: 5vh;
+    /* necesitamos un margen diferente por que en desktop tenemos otras dimensiones*/
+}
+
+@media only screen and (min-width: 800px) {
+    .galeria {
+        display: grid;
+        grid-template-areas:
+            'foto3 foto3 foto2 foto2 foto2 foto2'
+            'foto3 foto3 foto4 foto1 foto1 foto1'
+            'foto6 foto6 foto6 foto6 foto5 foto5';
+        grid-template-columns: repeat(6, auto);
+        align-content: stretch;
+        gap: 10px;
+        padding: 0.5vw;
+    }
+}
+
+.galeria div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* https://developer.mozilla.org/es/docs/Web/CSS/object-fit | El contenido reemplazado se dimensiona para mantener su relación de aspecto mientras llena el cuadro de contenido completo del elemento. Si la relación de aspecto del objeto no coincide con la relación de aspecto de su caja, entonces el objeto se recortará para que se ajuste.  */
+}
+
+.foto1 {
+    grid-area: foto1;
+}
+
+.foto2 {
+    grid-area: foto2;
+}
+
+.foto3 {
+    grid-area: foto3;
+}
+
+.foto4 {
+    grid-area: foto4;
+}
+
+.foto5 {
+    grid-area: foto5;
+}
+
+.foto6 {
+    grid-area: foto6;
+}
+
+.galeria>div {
+    background-color: #464646;
+}
+
+/* EVENTOS- */
+
+.eventos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0.5vw;
+    font-size: 120%;
+}
+
+.eventos__evento-pasado {
+    border: 1px solid rgba(0, 0, 0, 0.331);
+    background-color: rgba(102, 102, 102, 0.2);
+    color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+.eventos__evento {
+    border: 1px solid rgba(0, 0, 0, 0.331);
+    padding: 20px;
+    text-align: center;
+}
+
+.eventos__evento-activo>.eventos__evento__titulo>h4 {
+    color: #d6a214;
+}
+
+.eventos>div>div>img {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.eventos__evento-activo {
+    border: 4px solid #d6a214;
+    padding: 20px;
+    font-size: 130%;
+    text-align: center;
+}
+
+.eventos {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0.5vw;
+}
+
+@media only screen and (min-width: 600px) {
+    .eventos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0.5vw;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .eventos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0.5vw;
+    }
+}
