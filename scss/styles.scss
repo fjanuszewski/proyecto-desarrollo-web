@@ -38,15 +38,15 @@ li a {
 }
 
 li a:hover {
-    background-color: $color-fondo;
+    background-color: map-get($colores, color-secundario);
 }
 
 .active {
-    background-color: $color-activo;
+    background-color: map-get($colores, color-primario-intenso);
 }
 
 body {
-    background-color: $color-fondo;
+    background-color: map-get($colores, color-secundario);
     color: white;
     min-height: 100vh;
     display: flex;
@@ -136,7 +136,7 @@ textarea {
 
 input[type=submit] {
     width: 10rem;
-    background-color: $color-primario;
+    background-color: map-get($colores, color-primario);
     color: white;
     padding: 12px 20px;
     border: none;
@@ -193,28 +193,10 @@ input[type=submit]:hover {
     /* https://developer.mozilla.org/es/docs/Web/CSS/object-fit | El contenido reemplazado se dimensiona para mantener su relación de aspecto mientras llena el cuadro de contenido completo del elemento. Si la relación de aspecto del objeto no coincide con la relación de aspecto de su caja, entonces el objeto se recortará para que se ajuste.  */
 }
 
-.foto1 {
-    grid-area: foto1;
-}
-
-.foto2 {
-    grid-area: foto2;
-}
-
-.foto3 {
-    grid-area: foto3;
-}
-
-.foto4 {
-    grid-area: foto4;
-}
-
-.foto5 {
-    grid-area: foto5;
-}
-
-.foto6 {
-    grid-area: foto6;
+@for $i from 1 through 6 {
+	.foto#{$i}{
+        grid-area: foto#{$i};
+	}
 }
 
 .galeria>div {
