@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>Clase 3 - Contacto</title>
+</head>
+
+<body class="background-image">
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a class="active">Contacto</a></li>
+            <li><a href="info.html">Info</a></li>
+        </ul>
+    </nav>
+    <div class="principal">
+        <div class="principal__contacto">
+            <form action="">
+
+                <label for="fname">Nombre</label>
+                <input type="text" id="fname" name="firstname" placeholder="Tu nombre..">
+
+                <label for="lname">Apellido</label>
+                <input type="text" id="lname" name="lastname" placeholder="Tu apellido..">
+
+                <label for="country">Pais</label>
+                <select id="country" name="country">
+                    <option value="australia">Argentina</option>
+                    <option value="canada">Chile</option>
+                    <option value="usa">Uruguay</option>
+                </select>
+
+                <label for="subject">Comentarios</label>
+                <textarea id="subject" name="subject" placeholder="Deja tu comentario aqui.."
+                    style="height:200px"></textarea>
+                <div class="principal__contacto__botonenviar">
+                    <input type="submit" value="Enviar">
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-section">
+            <p class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="galeria.html">Galeria</a>
+                <a href="eventos.html">Eventos</a>
+                <a class="active-link">Contacto</a>
+                <a href="info.html">Info</a>
+            </p>
+            <p>Motor Company &copy; 2015</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
