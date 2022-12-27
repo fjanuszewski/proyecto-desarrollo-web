@@ -1,0 +1,137 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: CognitoAPIGWAngular
+Parameters:
+  CertArn:
+    Type: String
+  Domain:
+    Type: String
+  SubDomain:
+    Type: String
+Resources:
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName:
+        Fn::Join:
+        - .
+        - - Ref: SubDomain
+          - Ref: Domain
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+    Metadata:
+      SamResourceId: SiteBucket
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: SiteBucket
+      PolicyDocument:
+        Statement:
+        - Sid: PublicForCloudFront
+          Effect: Allow
+          Principal:
+            CanonicalUser:
+              Fn::GetAtt:
+              - CloudFrontOriginAccessIdentity
+              - S3CanonicalUserId
+          Action: s3:GetObject
+          Resource:
+            Fn::Sub: ${SiteBucket.Arn}/*
+    Metadata:
+      SamResourceId: SiteBucketPolicy
+  CloudFrontDistribution:
+    DependsOn:
+    - SiteBucket
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        CustomErrorResponses:
+        - ErrorCode: 403
+          ResponseCode: 404
+          ResponsePagePath: /index.html
+        Origins:
+        - DomainName:
+            Fn::GetAtt: SiteBucket.DomainName
+          Id: s3origin
+          S3OriginConfig:
+            OriginAccessIdentity:
+              Fn::Sub: origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}
+        PriceClass: PriceClass_All
+        Enabled: 'true'
+        Comment:
+          Fn::Join:
+          - .
+          - - Ref: AWS::StackName
+            - Distribution
+        DefaultRootObject: /index.html
+        HttpVersion: http2
+        Aliases:
+        - Fn::Join:
+          - .
+          - - Ref: SubDomain
+            - Ref: Domain
+        ViewerCertificate:
+          AcmCertificateArn:
+            Ref: CertArn
+          SslSupportMethod: sni-only
+        DefaultCacheBehavior:
+          AllowedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+          CachedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+          Compress: true
+          DefaultTTL: 3600
+          ForwardedValues:
+            Cookies:
+              Forward: none
+            QueryString: false
+          MaxTTL: 86400
+          MinTTL: 60
+          TargetOriginId: s3origin
+          ViewerProtocolPolicy: redirect-to-https
+    Metadata:
+      SamResourceId: CloudFrontDistribution
+  CloudFrontOriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment:
+          Fn::Sub: Identity to access site for ${AWS::StackName}
+    Metadata:
+      SamResourceId: CloudFrontOriginAccessIdentity
+  SiteHost:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      AliasTarget:
+        DNSName:
+          Fn::Sub: ${CloudFrontDistribution.DomainName}
+        HostedZoneId: Z2FDTNDATAQYW2
+      HostedZoneName:
+        Fn::Sub: ${Domain}.
+      Comment:
+        Fn::Sub: Domain for ${AWS::StackName}
+      Name:
+        Fn::Join:
+        - .
+        - - Ref: SubDomain
+          - Ref: Domain
+      Type: A
+    Metadata:
+      SamResourceId: SiteHost
+Outputs:
+  CloudFrontDistributionOutput:
+    Description: CloudFront Distribution
+    Value:
+      Ref: CloudFrontDistribution
+    Export:
+      Name:
+        Fn::Join:
+        - '-'
+        - - Ref: AWS::StackName
+          - PortalDistribution
