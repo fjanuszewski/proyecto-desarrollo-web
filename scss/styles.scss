@@ -28,6 +28,7 @@ nav {
         margin-bottom: 0;
     }
 }
+
 ul li {
     float: left;
 }
@@ -187,9 +188,9 @@ input[type=submit]:hover {
 }
 
 @for $i from 1 through 6 {
-	.foto#{$i}{
+    .foto#{$i} {
         grid-area: foto#{$i};
-	}
+    }
 }
 
 .galeria>div {
@@ -242,6 +243,24 @@ input[type=submit]:hover {
     padding: 0.5vw;
 }
 
+.filtro__enviar {
+    input {
+        background-color: map-get($colores, color-primario);
+        border-color: map-get($colores, color-primario);
+        color: white;
+    }
+    input:hover, input:active, input:visited, input:focus, input:link {
+        background-color: map-get($colores, color-secundario);
+        border-color: map-get($colores, color-primario);
+        color: white;
+        outline: none !important;
+        box-shadow: none;
+    }
+}
+.filtred {
+    visibility: hidden;
+}
+
 @media only screen and (max-width: 600px) {
     .galeria {
         margin-top: 12vh;
@@ -261,7 +280,8 @@ input[type=submit]:hover {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         padding: 0.5vw;
-    }    
+    }
+
     .galeria {
         display: grid;
         grid-template-areas:
