@@ -67,8 +67,7 @@ function buscar() {
         for (evento of eventos) {
             console.log(evento.innerHTML)
             if (evento.fecha != fechaBuscar) {
-                document.getElementById(`evento${evento.id}`).remove()
-
+                document.getElementById(`evento${evento.id}`).remove() //reutilizo el ID del evento para eliminarlo
             }
         }
     }
