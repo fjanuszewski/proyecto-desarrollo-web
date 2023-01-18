@@ -1,6 +1,5 @@
 @charset "UTF-8";
 /* FOOTER */
-
 .footer {
   margin-top: auto; }
 
@@ -23,7 +22,8 @@ footer {
 * {
   font-family: Copperplate, Papyrus, fantasy;
   padding: 0px;
-  margin: 0px; }
+  margin: 0px;
+  font-size: 16px; }
 
 ul {
   overflow: hidden;
@@ -38,6 +38,9 @@ nav {
   justify-content: center;
   flex-wrap: nowrap; }
 
+nav ul {
+  margin-bottom: 0; }
+
 ul li {
   float: left; }
 
@@ -51,7 +54,8 @@ li a {
   text-decoration: none; }
 
 li a:hover {
-  background-color: #111; }
+  background-color: #111 !important;
+  color: white; }
 
 .active {
   background-color: orange; }
@@ -155,17 +159,7 @@ input[type=submit]:hover {
   align-content: stretch;
   gap: 10px;
   padding: 0.5vw;
-  margin-top: 5vh;
   /* necesitamos un margen diferente por que en desktop tenemos otras dimensiones*/ }
-
-@media only screen and (min-width: 800px) {
-  .galeria {
-    display: grid;
-    grid-template-areas: 'foto3 foto3 foto2 foto2 foto2 foto2' 'foto3 foto3 foto4 foto1 foto1 foto1' 'foto6 foto6 foto6 foto6 foto5 foto5';
-    grid-template-columns: repeat(6, auto);
-    align-content: stretch;
-    gap: 10px;
-    padding: 0.5vw; } }
 
 .galeria div img {
   width: 100%;
@@ -232,6 +226,10 @@ input[type=submit]:hover {
   grid-template-columns: repeat(1, 1fr);
   padding: 0.5vw; }
 
+@media only screen and (max-width: 600px) {
+  .galeria {
+    margin-top: 12vh; } }
+
 @media only screen and (min-width: 600px) {
   .eventos {
     display: grid;
@@ -242,4 +240,11 @@ input[type=submit]:hover {
   .eventos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    padding: 0.5vw; }
+  .galeria {
+    display: grid;
+    grid-template-areas: 'foto3 foto3 foto2 foto2 foto2 foto2' 'foto3 foto3 foto4 foto1 foto1 foto1' 'foto6 foto6 foto6 foto6 foto5 foto5';
+    grid-template-columns: repeat(6, auto);
+    align-content: stretch;
+    gap: 10px;
     padding: 0.5vw; } }
