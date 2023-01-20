@@ -56,10 +56,13 @@ const eventos = [{
 
 let btnBuscar = document.getElementById("btnBuscar")
 btnBuscar.addEventListener("click", buscar)
+let formFiltrar = document.getElementById("formFiltrar")
+formFiltrar.addEventListener("submit", buscar)
 
 //funcion buscar para filtrar los eventos que quiera el usuario
 
-function buscar() {
+function buscar(event) {
+    event.preventDefault()
     cargarEventos(eventos, new Date(getDateNow()).getTime()) //Reutilizamos la funcion de cargar eventos
     let fechaBuscar = document.getElementById("inputFechaBuscar").value
     if (fechaBuscar != '') {

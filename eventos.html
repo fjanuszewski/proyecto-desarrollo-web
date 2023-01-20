@@ -12,22 +12,42 @@
     </script>
     <link rel="stylesheet" href="./assets/styles.css">
     <script src="/js/script.js" defer></script>
-    <title>Clase 3 - Eventos</title>
+    <title>BlackRoad - Eventos</title>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="galeria.html">Galeria</a></li>
-            <li><a class="active" href="eventos.html">Eventos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="info.html">Info</a></li>
-        </ul>
+    <nav class="navbar p-0 navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">BlackRoad</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto">
+                    <li class="nav-item">
+                        <a href="./index.html">Home</a> </li>
+                    <li class="nav-item">
+                        <a href="galeria.html">Galeria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="active" href="eventos.html">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="info.html">Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
+
     <div class="principal">
         <div class="container">
-            <form action="filtrar">
+            <form id="formFiltrar">
                 <div class="filtro row justify-content-center align-items-center g-2 text-center">
                     <div class="col-xs-12 col-sm-4 col-md-4">
                         <input type="text" class="form-control" name="" id="inputFechaBuscar" aria-describedby="helpId"
@@ -47,7 +67,7 @@
                         </div>
                     </div>
                     <div class="filtro__enviar col-xs-12 col-sm-4 col-md-4">
-                        <input name="btnBuscar" id="btnBuscar" class="btn btn-primary" type="button" value="Button">
+                        <input name="btnBuscar" id="btnBuscar" class="btn btn-primary" type="button" value="Buscar">
                     </div>
                 </div>
             </form>

@@ -25,33 +25,15 @@ footer {
   margin: 0px;
   font-size: 16px; }
 
-ul {
-  overflow: hidden;
-  list-style: none; }
-
-nav {
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap; }
-
-nav ul {
-  margin-bottom: 0; }
-
-ul li {
-  float: left; }
-
-li {
-  float: left; }
+.bg-dark {
+  background-color: #333 !important; }
 
 li a {
   display: block;
   color: white;
-  padding: 14px 30px;
-  text-decoration: none; }
+  padding: 20px 30px;
+  text-decoration: none;
+  height: 65px; }
 
 li a:hover {
   background-color: #111 !important;
@@ -72,13 +54,11 @@ body {
   margin: auto; }
 
 .principal {
-  padding-top: 20px;
-  margin-top: 10vh; }
+  padding-top: 1vh; }
 
 @media only screen and (min-width: 768px) {
   .principal {
-    padding-top: 20px;
-    margin-top: 5vh; } }
+    margin-top: 1vh; } }
 
 .principal__contacto {
   margin-top: 10vh;
@@ -145,10 +125,6 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049; }
-
-.container {
-  border-radius: 5px;
-  padding: 20px; }
 
 /* manejo de GRIDS */
 /* GALERIA */
@@ -223,8 +199,7 @@ input[type=submit]:hover {
 
 .eventos {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  padding: 0.5vw; }
+  grid-template-columns: repeat(1, 1fr); }
 
 .filtro__enviar input {
   background-color: #d6a214;
@@ -248,14 +223,12 @@ input[type=submit]:hover {
 @media only screen and (min-width: 600px) {
   .eventos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0.5vw; } }
+    grid-template-columns: repeat(2, 1fr); } }
 
 @media only screen and (min-width: 800px) {
   .eventos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0.5vw; }
+    grid-template-columns: repeat(3, 1fr); }
   .galeria {
     display: grid;
     grid-template-areas: 'foto3 foto3 foto2 foto2 foto2 foto2' 'foto3 foto3 foto4 foto1 foto1 foto1' 'foto6 foto6 foto6 foto6 foto5 foto5';
