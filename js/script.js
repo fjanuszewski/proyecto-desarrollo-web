@@ -19,7 +19,7 @@ const eventos = [{
     {
         id: "4",
         titulo: "Curvas en el camino",
-        fecha: "2023/01/18",
+        fecha: "2023/01/19",
         descripcion: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam, voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam nam eius ducimus repellat reprehenderit"
     },
     {
@@ -60,13 +60,12 @@ btnBuscar.addEventListener("click", buscar)
 //funcion buscar para filtrar los eventos que quiera el usuario
 
 function buscar() {
+    cargarEventos(eventos, new Date(getDateNow()).getTime()) //Reutilizamos la funcion de cargar eventos
     let fechaBuscar = document.getElementById("inputFechaBuscar").value
-    if (fechaBuscar == '') {
-        cargarEventos(eventos, new Date(getDateNow()).getTime()) //Reutilizamos la funcion de cargar eventos
-    } else {
+    if (fechaBuscar != '') {
         for (evento of eventos) {
             console.log(evento.innerHTML)
-            if (evento.fecha != fechaBuscar) {
+            if (!evento.fecha.includes(fechaBuscar)) {
                 document.getElementById(`evento${evento.id}`).remove() //reutilizo el ID del evento para eliminarlo
             }
         }
@@ -83,9 +82,9 @@ function cargarEventos(eventos,dateToday) {
         
         //Vamos a modificar el className segun la fecha del evento
         if (dateEvent < dateToday) {
-            classEvento = classEvento + "-pasado"
+            classEvento = classEvento + "-pasado" //eventos__evento-pasado
         } else if (dateEvent == dateToday) {
-            classEvento = classEvento + "-activo"
+            classEvento = classEvento + "-activo" //eventos__evento-pasado
         }
         //Template para cargar eventos
         gridEventos.innerHTML = gridEventos.innerHTML + `<div class="${classEvento}" id="evento${evento.id}">
@@ -117,5 +116,6 @@ function getDateNow() {
 }
 
 let dateToday = new Date(getDateNow()).getTime(); //getTime me permite pasarla a un formato numerico el cual puedo comparar
+
 //cargamos los eventos por primera vez
 cargarEventos(eventos, dateToday)
