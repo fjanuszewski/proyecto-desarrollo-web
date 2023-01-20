@@ -226,6 +226,21 @@ input[type=submit]:hover {
   grid-template-columns: repeat(1, 1fr);
   padding: 0.5vw; }
 
+.filtro__enviar input {
+  background-color: #d6a214;
+  border-color: #d6a214;
+  color: white; }
+
+.filtro__enviar input:hover, .filtro__enviar input:active, .filtro__enviar input:visited, .filtro__enviar input:focus, .filtro__enviar input:link {
+  background-color: #111;
+  border-color: #d6a214;
+  color: white;
+  outline: none !important;
+  box-shadow: none; }
+
+.filtred {
+  visibility: hidden; }
+
 @media only screen and (max-width: 600px) {
   .galeria {
     margin-top: 12vh; } }
