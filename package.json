@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build-prod":"npm run build-css && mkdir -p dist && cp *.html dist/ && cp -R assets/ dist/assets && cp -R js/ dist/js",
     "build-css": "node-sass --include-path scss scss/styles.scss assets/styles.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },

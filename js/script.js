@@ -19,7 +19,7 @@ const eventos = [{
     {
         id: "4",
         titulo: "Curvas en el camino",
-        fecha: "2023/01/19",
+        fecha: "2023/01/24",
         descripcion: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam, voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam nam eius ducimus repellat reprehenderit"
     },
     {

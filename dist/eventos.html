@@ -5,124 +5,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="./assets/styles.css">
-    <title>Clase 3 - Eventos</title>
+    <script src="/js/script.js" defer></script>
+    <title>BlackRoad - Eventos</title>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="galeria.html">Galeria</a></li>
-            <li><a class="active" href="eventos.html">Eventos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="info.html">Info</a></li>
-        </ul>
+    <nav class="navbar p-0 navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">BlackRoad</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto">
+                    <li class="nav-item">
+                        <a href="./index.html">Home</a> </li>
+                    <li class="nav-item">
+                        <a href="galeria.html">Galeria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="active" href="eventos.html">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="info.html">Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    <div class="principal">
 
-        <div class="eventos">
-            <div class="eventos__evento-pasado">
-                <div class="eventos__evento__titulo">
-                    <h3>Camino a las sierras</h3>
-                    <h4>12/09/2022</h4>
+    <div class="principal">
+        <div class="container">
+            <form id="formFiltrar">
+                <div class="filtro row justify-content-center align-items-center g-2 text-center">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <input type="text" class="form-control" name="" id="inputFechaBuscar" aria-describedby="helpId"
+                            placeholder="dd/mm/aaaa"></div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkEventosPasados" value="pasados">
+                            <label class="form-check-label" for="">pasados</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkEventosProximos" value="proximos">
+                            <label class="form-check-label" for="">proximos</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="checkEventosEsteMes" value="esteMes">
+                            <label class="form-check-label" for="">este mes</label>
+                        </div>
+                    </div>
+                    <div class="filtro__enviar col-xs-12 col-sm-4 col-md-4">
+                        <input name="btnBuscar" id="btnBuscar" class="btn btn-primary" type="button" value="Buscar">
+                    </div>
                 </div>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam,
-                        voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam
-                        nam eius ducimus repellat reprehenderit.</p>
-                </div>
-                <div><img src="./assets/evento1.jpg" alt="evento1"></div>
-            </div>
-            <div class="eventos__evento-pasado">
-                <div class="eventos__evento__titulo">
-                    <h3>Ruteada bajo la luna</h3>
-                    <h4>20/09/2022</h4>
-                </div>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam,
-                        voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam
-                        nam eius ducimus repellat reprehenderit.</p>
-                </div>
-                <div><img src="./assets/evento2.jpg" alt="evento2"></div>
-            </div>
-            <div class="eventos__evento-activo">
-                <div class="eventos__evento__titulo">
-                    <h3>Con el viento en la cara</h3>
-                    <h4>06/10/2022</h4>
-                </div>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam,
-                        voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam
-                        nam eius ducimus repellat reprehenderit.</p>
-                </div>
-            </div>
-            <div class="eventos__evento">
-                <div class="eventos__evento__titulo">
-                    <h3>Curvas en el camino</h3>
-                    <h4>9/10/2022</h4>
-                </div>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam,
-                        voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam
-                        nam eius ducimus repellat reprehenderit.</p>
-                </div>
-            </div>
-            <div class="eventos__evento">
-                <div class="eventos__evento__titulo">
-                    <h3>El hijo del viento</h3>
-                    <h4>15/10/2022</h4>
-                </div>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam,
-                        voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam
-                        nam eius ducimus repellat reprehenderit.</p>
-                </div>
-            </div>
-            <div class="eventos__evento">
-                <div class="eventos__evento__titulo">
-                    <h3>Medio puño</h3>
-                    <h4>25/10/2022</h4>
-                </div>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam,
-                        voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam
-                        nam eius ducimus repellat reprehenderit.</p>
-                </div>
-            </div>
-            <div class="eventos__evento">
-                <div class="eventos__evento__titulo">
-                    <h3>5ta a fondo</h3>
-                    <h4>4/11/2022</h4>
-                </div>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam,
-                        voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam
-                        nam eius ducimus repellat reprehenderit.</p>
-                </div>
-            </div>
-            <div class="eventos__evento">
-                <div class="eventos__evento__titulo">
-                    <h3>Rutas y amigos</h3>
-                    <h4>14/11/2022</h4>
-                </div>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam,
-                        voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam
-                        nam eius ducimus repellat reprehenderit.</p>
-                </div>
-            </div>
-            <div class="eventos__evento">
-                <div class="eventos__evento__titulo">
-                    <h3>Buenas Rutas</h3>
-                    <h4>20/11/2022</h4>
-                </div>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A earum tempore ipsum temporibus quam,
-                        voluptas exercitationem corrupti cupiditate, quaerat assumenda iste natus deleniti quos ullam
-                        nam eius ducimus repellat reprehenderit.</p>
-                </div>
-            </div>
+            </form>
+        </div>
+        <div id="eventos" class="eventos">
         </div>
     </div>
     <footer>
